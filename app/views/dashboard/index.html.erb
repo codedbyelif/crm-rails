@@ -1,95 +1,132 @@
 <div class="space-y-8">
-  <!-- Header -->
-  <div class="md:flex md:items-center md:justify-between">
-    <div class="flex-1 min-w-0">
-      <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate">
-        Overview
-      </h2>
-    </div>
-    <div class="mt-4 flex md:mt-0 md:ml-4 space-x-3">
-      <%= link_to new_lead_path, class: "inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-rose-600 hover:bg-rose-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-rose-500" do %>
-        New Lead
-      <% end %>
-      <%= link_to new_customer_path, class: "inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-rose-500" do %>
-        New Customer
-      <% end %>
+  <!-- Header with Red Gradient Background -->
+  <div class="bg-gradient-to-r from-rose-700 to-red-600 rounded-2xl shadow-xl p-8 text-white mb-10">
+    <div class="md:flex md:items-center md:justify-between">
+      <div class="flex-1 min-w-0">
+        <h2 class="text-3xl font-extrabold leading-7 sm:text-4xl sm:truncate">
+          Genel Bakış
+        </h2>
+        <p class="mt-2 text-rose-100 text-lg">
+          Hoş geldiniz! İşte CRM durumunuzun özeti.
+        </p>
+      </div>
+      <div class="mt-6 flex md:mt-0 md:ml-4 space-x-3">
+        <%= link_to new_lead_path, class: "inline-flex items-center px-6 py-3 border border-transparent rounded-lg shadow-sm text-base font-medium text-rose-700 bg-white hover:bg-rose-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-rose-500 transition-colors duration-200" do %>
+          <svg class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+          </svg>
+          Yeni İpucu
+        <% end %>
+        <%= link_to new_customer_path, class: "inline-flex items-center px-6 py-3 border border-white rounded-lg shadow-sm text-base font-medium text-white bg-rose-600/30 hover:bg-rose-600/50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white transition-colors duration-200" do %>
+          <svg class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0z" />
+          </svg>
+          Yeni Müşteri
+        <% end %>
+      </div>
     </div>
   </div>
 
   <!-- Stats Grid -->
-  <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+  <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
     <!-- Customers Card -->
-    <div class="bg-gradient-to-br from-rose-500 to-pink-600 overflow-hidden shadow-lg rounded-xl text-white">
-      <div class="p-5">
+    <div class="bg-white overflow-hidden shadow-lg rounded-xl border border-gray-100 hover:shadow-xl transition-shadow duration-300">
+      <div class="p-6">
         <div class="flex items-center">
-          <div class="flex-shrink-0 bg-white/20 rounded-md p-3">
-            <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+          <div class="flex-shrink-0 bg-rose-100 rounded-lg p-3">
+            <svg class="h-8 w-8 text-rose-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0z" />
             </svg>
           </div>
           <div class="ml-5 w-0 flex-1">
             <dl>
-              <dt class="text-sm font-medium text-rose-100 truncate">Total Customers</dt>
-              <dd class="text-3xl font-bold"><%= Customer.count %></dd>
+              <dt class="text-sm font-medium text-gray-500 truncate">Toplam Müşteri</dt>
+              <dd class="text-3xl font-bold text-gray-900"><%= Customer.count %></dd>
             </dl>
           </div>
+        </div>
+      </div>
+      <div class="bg-gray-50 px-6 py-3">
+        <div class="text-sm">
+          <a href="<%= customers_path %>" class="font-medium text-rose-600 hover:text-rose-500 flex items-center">
+            Listeyi Gör <svg class="ml-1 h-4 w-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/></svg>
+          </a>
         </div>
       </div>
     </div>
 
     <!-- Leads Card -->
-    <div class="bg-gradient-to-br from-pink-500 to-rose-500 overflow-hidden shadow-lg rounded-xl text-white">
-      <div class="p-5">
+    <div class="bg-white overflow-hidden shadow-lg rounded-xl border border-gray-100 hover:shadow-xl transition-shadow duration-300">
+      <div class="p-6">
         <div class="flex items-center">
-          <div class="flex-shrink-0 bg-white/20 rounded-md p-3">
-            <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-            </svg>
-          </div>
-          <div class="ml-5 w-0 flex-1">
-            <dl>
-              <dt class="text-sm font-medium text-pink-100 truncate">Active Leads</dt>
-              <dd class="text-3xl font-bold"><%= Lead.count %></dd>
-            </dl>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Interactions Card -->
-    <div class="bg-gradient-to-br from-cyan-400 to-blue-500 overflow-hidden shadow-lg rounded-xl text-white">
-      <div class="p-5">
-        <div class="flex items-center">
-          <div class="flex-shrink-0 bg-white/20 rounded-md p-3">
-             <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
-            </svg>
-          </div>
-          <div class="ml-5 w-0 flex-1">
-            <dl>
-              <dt class="text-sm font-medium text-cyan-100 truncate">Total Interactions</dt>
-              <dd class="text-3xl font-bold"><%= Interaction.count %></dd>
-            </dl>
-          </div>
-        </div>
-      </div>
-    </div>
-
-     <!-- Conversion Rate (Mock) -->
-    <div class="bg-gradient-to-br from-emerald-400 to-green-500 overflow-hidden shadow-lg rounded-xl text-white">
-      <div class="p-5">
-        <div class="flex items-center">
-          <div class="flex-shrink-0 bg-white/20 rounded-md p-3">
-             <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <div class="flex-shrink-0 bg-red-100 rounded-lg p-3">
+            <svg class="h-8 w-8 text-red-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
             </svg>
           </div>
           <div class="ml-5 w-0 flex-1">
             <dl>
-              <dt class="text-sm font-medium text-emerald-100 truncate">Conversion Rate</dt>
-              <dd class="text-3xl font-bold">24%</dd>
+              <dt class="text-sm font-medium text-gray-500 truncate">Aktif İpuçları</dt>
+              <dd class="text-3xl font-bold text-gray-900"><%= Lead.count %></dd>
             </dl>
           </div>
+        </div>
+      </div>
+      <div class="bg-gray-50 px-6 py-3">
+        <div class="text-sm">
+          <a href="<%= leads_path %>" class="font-medium text-rose-600 hover:text-rose-500 flex items-center">
+            İpuçlarını Gör <svg class="ml-1 h-4 w-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Interactions Card -->
+    <div class="bg-white overflow-hidden shadow-lg rounded-xl border border-gray-100 hover:shadow-xl transition-shadow duration-300">
+      <div class="p-6">
+        <div class="flex items-center">
+          <div class="flex-shrink-0 bg-orange-100 rounded-lg p-3">
+             <svg class="h-8 w-8 text-orange-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+            </svg>
+          </div>
+          <div class="ml-5 w-0 flex-1">
+            <dl>
+              <dt class="text-sm font-medium text-gray-500 truncate">Etkileşimler</dt>
+              <dd class="text-3xl font-bold text-gray-900"><%= Interaction.count %></dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+            <div class="bg-gray-50 px-6 py-3">
+        <div class="text-sm">
+          <a href="<%= interactions_path %>" class="font-medium text-rose-600 hover:text-rose-500 flex items-center">
+            Geçmişi Gör <svg class="ml-1 h-4 w-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+     <!-- Conversion Rate (Mock) -->
+    <div class="bg-white overflow-hidden shadow-lg rounded-xl border border-gray-100 hover:shadow-xl transition-shadow duration-300">
+      <div class="p-6">
+        <div class="flex items-center">
+          <div class="flex-shrink-0 bg-green-100 rounded-lg p-3">
+             <svg class="h-8 w-8 text-green-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <div class="ml-5 w-0 flex-1">
+            <dl>
+              <dt class="text-sm font-medium text-gray-500 truncate">Dönüşüm Oranı</dt>
+              <dd class="text-3xl font-bold text-gray-900">%24</dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+      <div class="bg-gray-50 px-6 py-3">
+        <div class="text-sm text-gray-500">
+          Geçen aya göre <span class="text-green-600 font-semibold">%12 artış</span>
         </div>
       </div>
     </div>
@@ -97,20 +134,23 @@
 
   <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
     <!-- Recent Activity -->
-    <div class="bg-white shadow rounded-lg">
-      <div class="px-4 py-5 border-b border-gray-200 sm:px-6">
-        <h3 class="text-lg leading-6 font-medium text-gray-900">Recent Activity</h3>
+    <div class="bg-white shadow-lg rounded-xl border border-gray-200">
+      <div class="px-6 py-5 border-b border-gray-200 bg-gray-50 rounded-t-xl flex justify-between items-center">
+        <h3 class="text-lg leading-6 font-bold text-gray-900">Son Hareketler</h3>
+        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-rose-100 text-rose-800">
+          Canlı Akış
+        </span>
       </div>
       <ul class="divide-y divide-gray-200">
         <% Interaction.order(occurred_at: :desc).limit(5).each do |interaction| %>
-          <li class="px-4 py-4 sm:px-6 hover:bg-gray-50 transition duration-150 ease-in-out">
+          <li class="px-6 py-5 hover:bg-gray-50 transition duration-150 ease-in-out">
             <div class="flex items-center justify-between">
               <div class="flex items-center">
                 <div class="flex-shrink-0">
                   <span class="h-10 w-10 rounded-full flex items-center justify-center 
                   <%= case interaction.interaction_type 
                       when 'Call' then 'bg-blue-100 text-blue-600'
-                      when 'Email' then 'bg-pink-100 text-pink-600' 
+                      when 'Email' then 'bg-purple-100 text-purple-600' 
                       when 'Meeting' then 'bg-green-100 text-green-600'
                       else 'bg-gray-100 text-gray-600' end %>">
                     <% case interaction.interaction_type 
@@ -124,20 +164,17 @@
                   </span>
                 </div>
                 <div class="ml-4">
-                  <p class="text-sm font-medium text-rose-600 truncate">
+                  <p class="text-sm font-bold text-gray-900">
                     <%= interaction.interaction_type %>
                   </p>
                   <p class="text-sm text-gray-500">
-                    with <%= interaction.interactable.try(:name) || interaction.interactable.try(:source) %>
+                    <%= interaction.interactable.try(:name) || interaction.interactable.try(:source) %> ile
                   </p>
                 </div>
               </div>
               <div class="ml-2 flex-shrink-0 flex flex-col items-end">
-                <p class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                  Completed
-                </p>
-                <p class="mt-1 text-xs text-gray-500">
-                  <%= time_ago_in_words(interaction.occurred_at) %> ago
+                <p class="text-xs text-gray-500 font-medium">
+                  <%= time_ago_in_words(interaction.occurred_at) %> önce
                 </p>
               </div>
             </div>
@@ -147,31 +184,31 @@
           </li>
         <% end %>
         <% if Interaction.count == 0 %>
-          <li class="px-4 py-8 text-center text-gray-500 text-sm">
-            No recent activity found.
+          <li class="px-6 py-8 text-center text-gray-500 text-sm">
+            Son zamanlarda bir hareket yok.
           </li>
         <% end %>
       </ul>
-      <div class="bg-gray-50 px-4 py-4 sm:px-6 rounded-b-lg">
+      <div class="bg-gray-50 px-6 py-4 rounded-b-xl border-t border-gray-200">
         <div class="text-sm">
-          <%= link_to interactions_path, class: "font-medium text-rose-600 hover:text-rose-500" do %>
-            View all activity <span aria-hidden="true">&rarr;</span>
+          <%= link_to interactions_path, class: "font-medium text-rose-600 hover:text-rose-500 flex items-center justify-center" do %>
+            Tüm hareketleri gör <span aria-hidden="true" class="ml-1">&rarr;</span>
           <% end %>
         </div>
       </div>
     </div>
 
     <!-- Quick Links / Recent Customers -->
-    <div class="bg-white shadow rounded-lg">
-      <div class="px-4 py-5 border-b border-gray-200 sm:px-6">
-        <h3 class="text-lg leading-6 font-medium text-gray-900">Newest Customers</h3>
+    <div class="bg-white shadow-lg rounded-xl border border-gray-200">
+      <div class="px-6 py-5 border-b border-gray-200 bg-gray-50 rounded-t-xl">
+        <h3 class="text-lg leading-6 font-bold text-gray-900">En Yeni Müşteriler</h3>
       </div>
        <ul class="divide-y divide-gray-200">
         <% Customer.order(created_at: :desc).limit(5).each do |customer| %>
-          <li class="px-4 py-4 sm:px-6 hover:bg-gray-50 transition duration-150 ease-in-out">
+          <li class="px-6 py-5 hover:bg-gray-50 transition duration-150 ease-in-out">
             <div class="flex items-center justify-between">
               <div class="flex items-center">
-                 <div class="flex-shrink-0 h-10 w-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-500 font-bold">
+                 <div class="flex-shrink-0 h-10 w-10 rounded-full bg-rose-100 flex items-center justify-center text-rose-600 font-bold border-2 border-white shadow-sm">
                     <%= customer.name[0..1].upcase %>
                  </div>
                  <div class="ml-4">
@@ -179,22 +216,22 @@
                     <div class="text-sm text-gray-500"><%= customer.email %></div>
                  </div>
               </div>
-              <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">
+              <span class="px-2.5 py-0.5 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">
                 <%= customer.status %>
               </span>
             </div>
           </li>
         <% end %>
          <% if Customer.count == 0 %>
-          <li class="px-4 py-8 text-center text-gray-500 text-sm">
-            No customers found.
+          <li class="px-6 py-8 text-center text-gray-500 text-sm">
+            Henüz müşteri yok.
           </li>
         <% end %>
        </ul>
-        <div class="bg-gray-50 px-4 py-4 sm:px-6 rounded-b-lg">
+        <div class="bg-gray-50 px-6 py-4 rounded-b-xl border-t border-gray-200">
         <div class="text-sm">
-          <%= link_to customers_path, class: "font-medium text-rose-600 hover:text-rose-500" do %>
-            View all customers <span aria-hidden="true">&rarr;</span>
+          <%= link_to customers_path, class: "font-medium text-rose-600 hover:text-rose-500 flex items-center justify-center" do %>
+            Tüm müşterileri gör <span aria-hidden="true" class="ml-1">&rarr;</span>
           <% end %>
         </div>
       </div>
