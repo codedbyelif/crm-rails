@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   resources :customers
   resources :leads
+  resources :interactions
 
   get "dashboard", to: "dashboard#index"
   root "dashboard#index"

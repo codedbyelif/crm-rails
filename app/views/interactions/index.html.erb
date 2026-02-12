@@ -1,0 +1,61 @@
+<div class="space-y-6">
+  <div class="flex items-center justify-between">
+    <h1 class="text-2xl font-semibold text-gray-900">Interactions</h1>
+    <%= link_to "New Interaction", new_interaction_path, class: "inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
+  </div>
+
+  <div class="flex flex-col">
+    <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+      <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+        <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+          <table class="min-w-full divide-y divide-gray-200">
+            <thead class="bg-gray-50">
+              <tr>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Type</th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Related To</th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Notes</th>
+                <th scope="col" class="relative px-6 py-3">
+                  <span class="sr-only">Edit</span>
+                </th>
+              </tr>
+            </thead>
+            <tbody class="bg-white divide-y divide-gray-200">
+              <% @interactions.each do |interaction| %>
+                <tr>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full 
+                      <%= case interaction.interaction_type 
+                          when 'Call' then 'bg-blue-100 text-blue-800'
+                          when 'Email' then 'bg-purple-100 text-purple-800'
+                          when 'Meeting' then 'bg-green-100 text-green-800'
+                          else 'bg-gray-100 text-gray-800'
+                          end %>">
+                      <%= interaction.interaction_type %>
+                    </span>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    <%= interaction.occurred_at.strftime("%B %d, %Y %H:%M") %>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                    <% if interaction.interactable %>
+                      <%= interaction.interactable.try(:name) || interaction.interactable.try(:source) %>
+                      <span class="text-xs text-gray-500 ml-1">(<%= interaction.interactable_type %>)</span>
+                    <% else %>
+                      <span class="text-gray-400">N/A</span>
+                    <% end %>
+                  </td>
+                   <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 truncate max-w-xs"><%= interaction.notes %></td>
+                  <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                    <%= link_to "Edit", edit_interaction_path(interaction), class: "text-indigo-600 hover:text-indigo-900 mr-4" %>
+                    <%= button_to "Delete", interaction_path(interaction), method: :delete, class: "text-red-600 hover:text-red-900", form: { class: "inline-block" } %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
