@@ -2,8 +2,13 @@ Rails.application.routes.draw do
   devise_for :users
   namespace :api do
     namespace :v1 do
-      resources :customers
-      resources :leads
+      resources :customers do
+        resources :interactions, only: [ :index ]
+      end
+      resources :leads do
+        resources :interactions, only: [ :index ]
+      end
+      resources :interactions
     end
   end
 
