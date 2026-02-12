@@ -12,7 +12,6 @@ This application serves as a comprehensive tool for managing customer relationsh
 
 The following diagram illustrates the database structure and the relationships between Users, Customers, Leads, and Interactions. Note the polymorphic relationship where both Customers and Leads can have multiple Interactions.
 
-![Database Schema](do_not_render_this_image_path_use_relative_path_instead)
 ![Database Schema](public/database_schema.png)
 
 ## Features
