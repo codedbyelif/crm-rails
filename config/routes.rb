@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   end
 
   resources :customers
+  resources :leads
 
   get "dashboard", to: "dashboard#index"
   root "dashboard#index"
