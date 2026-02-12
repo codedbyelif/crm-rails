@@ -12,7 +12,9 @@
   </head>
 
   <body class="bg-gray-50 text-gray-900 font-sans antialiased">
-    <%= render "shared/navbar" %>
+    <% if user_signed_in? %>
+      <%= render "shared/navbar" %>
+    <% end %>
     <main class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
       <%= yield %>
     </main>

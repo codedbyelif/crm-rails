@@ -3,22 +3,22 @@
     <div class="flex justify-between h-16">
       <div class="flex">
         <div class="flex-shrink-0 flex items-center">
-          <svg class="h-8 w-8 text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg class="h-8 w-8 text-rose-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
           </svg>
-          <span class="ml-2 text-xl font-bold text-gray-900 tracking-tight">CRM<span class="text-indigo-600">Pro</span></span>
+          <span class="ml-2 text-xl font-bold text-gray-900 tracking-tight">CRM<span class="text-rose-600">Pro</span></span>
         </div>
         <div class="hidden sm:ml-8 sm:flex sm:space-x-8">
-          <%= link_to dashboard_path, class: "border-transparent text-gray-500 hover:border-indigo-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium transition duration-150 ease-in-out #{'border-indigo-500 text-gray-900' if current_page?(dashboard_path)}" do %>
+          <%= link_to dashboard_path, class: "border-transparent text-gray-500 hover:border-rose-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium transition duration-150 ease-in-out #{'border-rose-500 text-gray-900' if current_page?(dashboard_path)}" do %>
             Dashboard
           <% end %>
-          <%= link_to customers_path, class: "border-transparent text-gray-500 hover:border-indigo-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium transition duration-150 ease-in-out #{'border-indigo-500 text-gray-900' if current_page?(customers_path)}" do %>
+          <%= link_to customers_path, class: "border-transparent text-gray-500 hover:border-rose-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium transition duration-150 ease-in-out #{'border-rose-500 text-gray-900' if current_page?(customers_path)}" do %>
             Customers
           <% end %>
-          <%= link_to leads_path, class: "border-transparent text-gray-500 hover:border-indigo-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium transition duration-150 ease-in-out #{'border-indigo-500 text-gray-900' if current_page?(leads_path)}" do %>
+          <%= link_to leads_path, class: "border-transparent text-gray-500 hover:border-rose-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium transition duration-150 ease-in-out #{'border-rose-500 text-gray-900' if current_page?(leads_path)}" do %>
             Leads
           <% end %>
-          <%= link_to interactions_path, class: "border-transparent text-gray-500 hover:border-indigo-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium transition duration-150 ease-in-out #{'border-indigo-500 text-gray-900' if current_page?(interactions_path)}" do %>
+          <%= link_to interactions_path, class: "border-transparent text-gray-500 hover:border-rose-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium transition duration-150 ease-in-out #{'border-rose-500 text-gray-900' if current_page?(interactions_path)}" do %>
             Interactions
           <% end %>
         </div>
@@ -27,12 +27,12 @@
         <% if user_signed_in? %>
            <div class="flex items-center space-x-4">
             <span class="text-gray-700 text-sm font-medium"><%= current_user.email %></span>
-            <%= button_to destroy_user_session_path, method: :delete, class: "inline-flex items-center px-3 py-1.5 border border-transparent text-xs font-medium rounded text-indigo-700 bg-indigo-100 hover:bg-indigo-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-150 ease-in-out" do %>
+            <%= button_to destroy_user_session_path, method: :delete, class: "inline-flex items-center px-3 py-1.5 border border-transparent text-xs font-medium rounded text-rose-700 bg-rose-100 hover:bg-rose-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-rose-500 transition duration-150 ease-in-out" do %>
               Logout
             <% end %>
            </div>
         <% else %>
-          <%= link_to "Sign in", new_user_session_path, class: "text-indigo-600 hover:text-indigo-900 text-sm font-medium" %>
+          <%= link_to "Sign in", new_user_session_path, class: "text-rose-600 hover:text-rose-900 text-sm font-medium" %>
         <% end %>
       </div>
     </div>

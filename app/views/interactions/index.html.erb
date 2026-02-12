@@ -1,7 +1,7 @@
 <div class="space-y-6">
   <div class="flex items-center justify-between">
     <h1 class="text-2xl font-semibold text-gray-900">Interactions</h1>
-    <%= link_to "New Interaction", new_interaction_path, class: "inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
+    <%= link_to "New Interaction", new_interaction_path, class: "inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-rose-600 hover:bg-rose-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-rose-500" %>
   </div>
 
   <div class="flex flex-col">
@@ -27,7 +27,7 @@
                     <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full 
                       <%= case interaction.interaction_type 
                           when 'Call' then 'bg-blue-100 text-blue-800'
-                          when 'Email' then 'bg-purple-100 text-purple-800'
+                          when 'Email' then 'bg-pink-100 text-pink-800'
                           when 'Meeting' then 'bg-green-100 text-green-800'
                           else 'bg-gray-100 text-gray-800'
                           end %>">
@@ -47,7 +47,7 @@
                   </td>
                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 truncate max-w-xs"><%= interaction.notes %></td>
                   <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                    <%= link_to "Edit", edit_interaction_path(interaction), class: "text-indigo-600 hover:text-indigo-900 mr-4" %>
+                    <%= link_to "Edit", edit_interaction_path(interaction), class: "text-rose-600 hover:text-rose-900 mr-4" %>
                     <%= button_to "Delete", interaction_path(interaction), method: :delete, class: "text-red-600 hover:text-red-900", form: { class: "inline-block" } %>
                   </td>
                 </tr>

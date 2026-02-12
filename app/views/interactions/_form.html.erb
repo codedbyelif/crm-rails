@@ -9,14 +9,14 @@
         <div class="sm:col-span-3">
           <%= form.label :interaction_type, class: "block text-sm font-medium text-gray-700" %>
           <div class="mt-1">
-             <%= form.select :interaction_type, ["Call", "Email", "Meeting", "Note"], {}, class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" %>
+             <%= form.select :interaction_type, ["Call", "Email", "Meeting", "Note"], {}, class: "shadow-sm focus:ring-rose-500 focus:border-rose-500 block w-full sm:text-sm border-gray-300 rounded-md" %>
           </div>
         </div>
 
         <div class="sm:col-span-3">
           <%= form.label :occurred_at, class: "block text-sm font-medium text-gray-700" %>
           <div class="mt-1">
-            <%= form.datetime_field :occurred_at, class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" %>
+            <%= form.datetime_field :occurred_at, class: "shadow-sm focus:ring-rose-500 focus:border-rose-500 block w-full sm:text-sm border-gray-300 rounded-md" %>
           </div>
         </div>
 
@@ -24,7 +24,7 @@
           <%= form.label :interactable_type, "Related To", class: "block text-sm font-medium text-gray-700" %>
           <div class="mt-1">
             <%= form.select :interactable_type, ["Customer", "Lead"], { prompt: "Select Type" }, 
-                class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md",
+                class: "shadow-sm focus:ring-rose-500 focus:border-rose-500 block w-full sm:text-sm border-gray-300 rounded-md",
                 data: { controller: "interaction-type", action: "change->interaction-type#toggle" }
             %>
           </div>
@@ -33,7 +33,7 @@
         <div class="sm:col-span-3">
           <%= form.label :interactable_id, "ID", class: "block text-sm font-medium text-gray-700" %>
           <div class="mt-1">
-             <%= form.text_field :interactable_id, class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md", placeholder: "Enter Customer/Lead ID" %>
+             <%= form.text_field :interactable_id, class: "shadow-sm focus:ring-rose-500 focus:border-rose-500 block w-full sm:text-sm border-gray-300 rounded-md", placeholder: "Enter Customer/Lead ID" %>
              <p class="mt-1 text-xs text-gray-500">Enter the ID of the related Customer or Lead.</p>
           </div>
         </div>
@@ -41,7 +41,7 @@
          <div class="sm:col-span-6">
           <%= form.label :notes, class: "block text-sm font-medium text-gray-700" %>
           <div class="mt-1">
-            <%= form.text_area :notes, rows: 3, class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" %>
+            <%= form.text_area :notes, rows: 3, class: "shadow-sm focus:ring-rose-500 focus:border-rose-500 block w-full sm:text-sm border-gray-300 rounded-md" %>
           </div>
         </div>
 
@@ -51,8 +51,8 @@
 
   <div class="pt-5">
     <div class="flex justify-end">
-      <%= link_to "Cancel", interactions_path, class: "bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
-      <%= form.submit "Save", class: "ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
+      <%= link_to "Cancel", interactions_path, class: "bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-rose-500" %>
+      <%= form.submit "Save", class: "ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-rose-600 hover:bg-rose-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-rose-500" %>
     </div>
   </div>
 <% end %>

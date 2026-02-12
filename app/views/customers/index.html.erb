@@ -1,7 +1,7 @@
 <div class="space-y-6">
   <div class="flex items-center justify-between">
     <h1 class="text-2xl font-semibold text-gray-900">Customers</h1>
-    <%= link_to "New Customer", new_customer_path, class: "inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
+    <%= link_to "New Customer", new_customer_path, class: "inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-rose-600 hover:bg-rose-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-rose-500" %>
   </div>
 
   <div class="flex flex-col">
@@ -30,7 +30,7 @@
                     </span>
                   </td>
                   <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                    <%= link_to "Edit", edit_customer_path(customer), class: "text-indigo-600 hover:text-indigo-900 mr-4" %>
+                    <%= link_to "Edit", edit_customer_path(customer), class: "text-rose-600 hover:text-rose-900 mr-4" %>
                     <%= button_to "Delete", customer_path(customer), method: :delete, class: "text-red-600 hover:text-red-900", form: { class: "inline-block" } %>
                   </td>
                 </tr>
