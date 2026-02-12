@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  interaction_type: MyString
+  occurred_at: 2026-02-12 23:45:13
+  notes: MyText
+  interactable: one
+  interactable_type: Interactable
+
+two:
+  interaction_type: MyString
+  occurred_at: 2026-02-12 23:45:13
+  notes: MyText
+  interactable: two
+  interactable_type: Interactable

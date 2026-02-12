@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_02_12_204447) do
+ActiveRecord::Schema[8.1].define(version: 2026_02_12_204513) do
   create_table "customers", force: :cascade do |t|
     t.string "company"
     t.datetime "created_at", null: false
@@ -19,6 +19,17 @@ ActiveRecord::Schema[8.1].define(version: 2026_02_12_204447) do
     t.string "phone"
     t.string "status"
     t.datetime "updated_at", null: false
+  end
+
+  create_table "interactions", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.integer "interactable_id", null: false
+    t.string "interactable_type", null: false
+    t.string "interaction_type"
+    t.text "notes"
+    t.datetime "occurred_at"
+    t.datetime "updated_at", null: false
+    t.index ["interactable_type", "interactable_id"], name: "index_interactions_on_interactable"
   end
 
   create_table "leads", force: :cascade do |t|
